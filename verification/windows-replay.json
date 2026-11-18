@@ -1,0 +1,11 @@
+{
+  "proof_sha256": "f95f7999e437cc943f0fc2a27828089f8eb800fcb3e720d0923e7a42f19a6319",
+  "printed_types_match": true,
+  "exit_code": 0,
+  "checker": "nanoda_bin.exe",
+  "checker_sha256": "57aa5554ff433c0c117c3070aec5a7ee67918cc8169cfebdefa5a4b85bf4983a",
+  "checked_declarations": 68509,
+  "platform": "Windows x86_64",
+  "toolchain": "leanprover/lean4:v4.36.0-rc2",
+  "message": "Checked 68509 declarations with no errors"
+}

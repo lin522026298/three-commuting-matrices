@@ -1,0 +1,28 @@
+theorem all_complex_matrices_contract (n : Nat) (A B C : Matrix (Fin n) (Fin n) Complex)
+  (a._@._internal._hyg.0 : Eq (HMul.hMul A B) (HMul.hMul B A)) (a._@._internal._hyg.0 : Eq (HMul.hMul B C) (HMul.hMul C B))
+  (a._@._internal._hyg.0 : Eq (HMul.hMul C A) (HMul.hMul A C)) :
+  LE.le
+    (Module.finrank Complex
+      (Subtype
+        (fun (x : Matrix (Fin n) (Fin n) Complex) =>
+        Membership.mem (Algebra.adjoin Complex (Insert.insert A (Insert.insert B (Singleton.singleton C)))) x))) n :=
+  _
+
+theorem independent_columns_contract (n d : Nat) (A B C : Matrix (Fin n) (Fin n) Complex)
+  (hAB : Eq (HMul.hMul A B) (HMul.hMul B A)) (hBC : Eq (HMul.hMul B C) (HMul.hMul C B))
+  (hCA : Eq (HMul.hMul C A) (HMul.hMul A C))
+  (f :
+    LinearMap (RingHom.id Complex) (Fin d → Complex)
+      (Subtype
+        (fun (x : Matrix (Fin n) (Fin n) Complex) =>
+        Membership.mem (Algebra.adjoin Complex (Insert.insert A (Insert.insert B (Singleton.singleton C)))) x)))
+  (hf : Function.Injective (DFunLike.coe f)) :
+  LE.le d n :=
+  _
+
+axiom propext {a b : Sort 0} : Iff a b → Eq a b
+
+axiom Quot.sound.{u} {α : Sort u} {r : α → α → Sort 0} {a b : α} : r a b → Eq (Quot.mk r a) (Quot.mk r b)
+
+axiom Classical.choice.{u} {α : Sort u} : Nonempty α → α
+

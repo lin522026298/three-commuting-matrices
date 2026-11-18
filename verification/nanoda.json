@@ -1,0 +1,12 @@
+{
+  "use_stdin": true,
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "unpermitted_axiom_hard_error": true,
+  "nat_extension": true,
+  "string_extension": true,
+  "pp_declars": ["all_complex_matrices_contract", "independent_columns_contract"],
+  "pp_output_path": "nanoda_type.txt",
+  "pp_to_stdout": false,
+  "pp_options": {"notation": false, "proofs": false, "width": 125, "indent": 2},
+  "print_success_message": true
+}

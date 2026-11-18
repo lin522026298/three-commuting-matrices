@@ -1,0 +1,9 @@
+.lake/
+__pycache__/
+*.olean
+*.ilean
+*.jsonl.gz
+paper/*.aux
+paper/*.log
+paper/*.out
+verification/nanoda_type.txt
