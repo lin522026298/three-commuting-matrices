@@ -29,7 +29,7 @@ theorem qmul (a b : A) (hb : b ≠ 0) :
 variable (f : A →+* O) (a b : A) (hb : f b ≠ 0)
 omit [IsDomain A] [IsDomain O] in
 include hb in
-private theorem bne : b ≠ 0 := fun e => hb (by rw [e,map_zero])
+theorem bne : b ≠ 0 := fun e => hb (by rw [e,map_zero])
 
 def fracEval : adj (K := K) a b →+* FractionRing O :=
   let g := (algebraMap O (FractionRing O)).comp f

@@ -13,7 +13,7 @@ mathematical statement in [Challenge.lean](Challenge.lean) uses mathlib alone.
 [Solution.lean](Solution.lean) supplies the proof from the migrated development.
 See [formalization.yaml](formalization.yaml) for scope, provenance and review.
 From the repository root, run `lake build Challenge Solution` and
-`lake comparator comparator.json` in an environment with the required checkers.
+`lake comparator --config comparator.json` in an environment with the required checkers.
 The archived complex proof export and its recorded checks refer to the v1.1 release.
 
 Use Python 3.11 or later, Git and [elan](https://lean-lang.org/install/manual/). Run these commands from the repository root on a machine with room for the pinned mathlib cache.

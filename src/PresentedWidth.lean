@@ -31,7 +31,7 @@ section
 variable (P : Matrix (Fin r) (Fin r) (PowerSeries F))
 variable (t : Module.End F (QP P)) (hx : ∀ w, t w = (PowerSeries.X : PowerSeries F) • w)
 
-private def headMap := t.range.mkQ.comp (P.mulVecLin.range.mkQ.restrictScalars F)
+def headMap := t.range.mkQ.comp (P.mulVecLin.range.mkQ.restrictScalars F)
 include hx in
 private theorem head_absorb (v : Fin r → PowerSeries F) :
     headMap P t (cvec (reduceVec F (Fin r) v)) = headMap P t v := by

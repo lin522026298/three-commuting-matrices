@@ -20,7 +20,7 @@ section Integral
 variable {R : Type*} [CommRing R] [IsDomain R] [Algebra k R]
 abbrev incl : R →ₐ[k] FractionRing R := IsScalarTower.toAlgHom k R (FractionRing R)
 
-private theorem whole_range (T : Fin 6 → Mat R r) (hP : (T 0).det ≠ 0)
+theorem whole_range (T : Fin 6 → Mat R r) (hP : (T 0).det ≠ 0)
     (hT : Relations r T) :
     (pointField k r T hP).range ≤ (incl k (R := R)).range := by
   rw [range_generated]
