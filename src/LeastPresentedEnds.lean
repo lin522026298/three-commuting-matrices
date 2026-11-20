@@ -13,7 +13,7 @@ open Module LinearMap DivisorG3 PowerSeries
 open Gerstenhaber.FourBlocks.HeadBounds Gerstenhaber.FourBlocks.MinimalSource
 open Gerstenhaber.FourBlocks.PrimaryDecomposition
 open DVRMinimal
-variable {k : Type u} [Field k] [IsAlgClosed k] [CharZero k] (r : ℕ)
+variable {k : Type u} [Field k] [IsAlgClosed k] (r : ℕ)
 variable (S : Fin 6 → GKGraph.Mat (O k) r)
 abbrev r0 (l : Fin 6) := redM (S l)
 

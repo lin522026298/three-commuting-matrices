@@ -1,34 +1,42 @@
 # A Solution to the Gerstenhaber Problem for Three Commuting Matrices
 
-Yan-cheng Lin · Version 1.1 · [Read the paper](paper/main.pdf) · [LaTeX source](paper/main.tex) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24346423)
+Yan-cheng Lin · Paper v1.1 · [Read the paper](paper/main.pdf) · [LaTeX source](paper/main.tex) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24346423)
 
 If three endomorphisms of an *n*-dimensional space commute pairwise, their unital algebra has dimension at most *n*. The geometric proof works over every field. It shows how a violation on one finite-length module would force a divisor of violations, then bounds the dimension of its image using two actions on the same module.
 
-The Lean companion proves the complex and characteristic-zero statements. The additional results in Section 6 and the positive-characteristic geometric argument are in the paper. [Guide to the proof and formal statements](verification/guide.md)
+The compared theorem is `Gerstenhaber.finrank_adjoin_triple_le`, as stated in
+[Formal Conjectures](https://github.com/google-deepmind/formal-conjectures/blob/d8d031d4998c78575159ccab9a7a9e95ce043883/FormalConjectures/Other/GerstenhaberThreeMatrices.lean#L55-L66).
+Its quantifiers include fields of positive characteristic and matrices of size
+zero. The paper's Section 6 applications are separate results.
 
-## Reproduce the formal proofs
+In positive characteristic the formal argument first passes to an
+algebraic closure. Over this perfect field, the finite-normalization
+argument treats the inseparable part of the function-field extension
+using Frobenius. At the chosen divisor the residue field is essentially
+of finite type over the base, so formal smoothness provides the coefficient
+section needed for the finite jet. Extension of scalars preserves the
+dimension of the generated algebra, giving the result over the original field.
 
-This branch presents the characteristic-zero result to Comparator. The
-mathematical statement in [Challenge.lean](Challenge.lean) uses mathlib alone.
-[Solution.lean](Solution.lean) supplies the proof from the migrated development.
-See [formalization.yaml](formalization.yaml) for scope, provenance and review.
-From the repository root, run `lake build Challenge Solution` and
-`lake comparator --config comparator.json` in an environment with the required checkers.
-The archived complex proof export and its recorded checks refer to the v1.1 release.
+## Reproduce the all-fields proof
 
-Use Python 3.11 or later, Git and [elan](https://lean-lang.org/install/manual/). Run these commands from the repository root on a machine with room for the pinned mathlib cache.
+[Challenge.lean](Challenge.lean) states the theorem using only mathlib.
+[Solution.lean](Solution.lean) proves that statement using the three-matrix
+theorem in [AllFieldMatrices.lean](src/AllFieldMatrices.lean). Use the pinned
+Lean and mathlib revisions in this repository. From the root, on Linux with
+the Comparator sandbox and bundled checkers available, run:
 
 ```sh
-python3 scripts/replay.py --sources-only
-python3 scripts/replay.py --fetch-cache
-lake env python3 scripts/replay.py
+lake exe cache get
+lake build Challenge Solution
+lake comparator --config comparator.json
 ```
 
-The last command checks dependency revisions, compiles 136 base modules and two scalar-extension modules into a new temporary directory, and compiles a client that states the complex result with ordinary matrix multiplication. It checks the axiom reports of both endpoints. GitHub Actions uses these commands on Ubuntu.
+The source metadata, AI disclosure and relationship to the written
+proof appear in [formalization.yaml](formalization.yaml).
 
 ## Check the complex theorem from the proof terms
 
-The separate release asset `complex_contract_proof.jsonl.gz` contains the complex theorem and its transitive dependencies. Download it alongside this source package. The pinned Lean distribution includes the Rust checker `nanoda_bin`. With that executable on PATH, run
+The [v1.1 release](https://github.com/lin522026298/three-commuting-matrices/releases/tag/v1.1) contains the historical proof export `complex_contract_proof.jsonl.gz`. Its replay and CI records concern that version and its complex or characteristic-zero declarations. To reproduce the complex proof check, download the export and v1.1 source package. The pinned Lean distribution includes the Rust checker `nanoda_bin`. With that executable on PATH, run
 
 ```sh
 python3 scripts/check_export.py /path/to/complex_contract_proof.jsonl.gz

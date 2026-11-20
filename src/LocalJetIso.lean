@@ -8,12 +8,12 @@ public import Mathlib.RingTheory.DiscreteValuationRing.Basic
 noncomputable section
 namespace DVRMinimal
 open Polynomial
-variable {k V : Type*} [Field k] [CharZero k] [CommRing V] [IsDomain V] [Algebra k V]
+variable {k V : Type*} [Field k] [CommRing V] [IsDomain V] [Algebra k V]
 
 /-- Uniformizers are not presumed to come from a power-series coefficient system.
 The identifier e sends polynomial X to the chosen actual uniformizer. -/
-theorem uniformizer_jet_iso (k : Type*) [Field k] [CharZero k] [Algebra k V] (u : V) (hu : Irreducible u)
-    (m : Ideal V) [m.IsMaximal] (hm : m=Ideal.span {u}) (N : ℕ) (hn : 0<N) :
+theorem uniformizer_jet_iso (k : Type*) [Field k] [Algebra k V] (u : V) (hu : Irreducible u)
+    (m : Ideal V) [m.IsMaximal] [Algebra.FormallySmooth k (V ⧸ m)] (hm : m=Ideal.span {u}) (N : ℕ) (hn : 0<N) :
     ∃ e : ((V ⧸ m)[X] ⧸ Ideal.span {(X:(V ⧸ m)[X])^N}) ≃+* (V ⧸ m^N),
       e (Ideal.Quotient.mk _ X) = Ideal.Quotient.mk (m^N) u ∧
       ∀ a : V ⧸ m, Ideal.Quotient.factor (Ideal.pow_le_self hn.ne' : m^N ≤ m)

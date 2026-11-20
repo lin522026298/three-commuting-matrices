@@ -18,6 +18,7 @@ structure BadPole (k : Type u) [Field k] (r : ℕ) (h : GKGraph.ring k r) where
   [dom : IsDomain V]
   [dvr : IsDiscreteValuationRing V]
   [alg : Algebra k V]
+  [residue_ess : Algebra.EssFiniteType k (IsLocalRing.ResidueField V)]
   f : GKGraph.ring k r →ₐ[k] V
   inj : Function.Injective f
   w : V
@@ -33,7 +34,7 @@ theorem realizePole (k : Type u) [Field k] (r : ℕ) (h : GKGraph.ring k r)
     (inj : Function.Injective (algebraMap (GKGraph.ring k r) A)) (q : A)
     (he : q * algebraMap _ A h = algebraMap _ A ((GKGraph.gdelta k r)^(r-1)))
     (H : CenterData k (GKGraph.ring k r) A q (3*r*r)) : Nonempty (BadPole k r h) := by
-  obtain ⟨P,hp,hm,-,hv,-,hc⟩ := H
+  obtain ⟨P,hp,hm,-,hv,-,hc,hess⟩ := H
   letI := hp
   let N := Norm A
   let V := Localization.AtPrime P
@@ -45,6 +46,7 @@ theorem realizePole (k : Type u) [Field k] (r : ℕ) (h : GKGraph.ring k r)
   have hiv : Function.Injective (IsScalarTower.toAlgHom k N V) :=
     IsLocalization.injective V P.primeCompl_le_nonZeroDivisors
   refine ⟨{ V := V
+            residue_ess := hess
             f := f
             inj := hiv.comp (hin.comp inj)
             w := g q
@@ -57,7 +59,7 @@ theorem realizePole (k : Type u) [Field k] (r : ℕ) (h : GKGraph.ring k r)
   · have ht := six_coordinate_count k r A N P
     exact (congrArg (· + 1) ht).trans hc
 
-theorem trueGraph_concrete_pole (k : Type u) [Field k] [CharZero k] (r : ℕ)
+theorem trueGraph_concrete_pole (k : Type u) [Field k] [PerfectField k] (r : ℕ)
     {O : Type*} [CommRing O] [IsDomain O] [Algebra k O]
     (T : Fin 6 → GKGraph.Mat O r) (ht : (T 0).det ≠ 0) (hT : GKGraph.Relations r T)
     (h : GKGraph.ring k r) (hd : GKGraph.point k r T ht hT h ≠ 0)

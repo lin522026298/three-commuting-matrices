@@ -11,7 +11,7 @@ universe u
 open IsDiscreteValuationRing
 attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
 
-theorem strict_pole_of_real_minor (k : Type u) [Field k] [CharZero k] (r : ℕ)
+theorem strict_pole_of_real_minor (k : Type u) [Field k] [PerfectField k] (r : ℕ)
     {O : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [Algebra k O]
     (T : Fin 6 → GKGraph.Mat O r) (ht : (T 0).det ≠ 0) (hT : GKGraph.Relations r T)
     (s : GKGraph.selectCols r)

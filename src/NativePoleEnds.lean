@@ -36,7 +36,7 @@ lemma matrix_zero_of_rank_zero {M : Matrix (Fin r) (Fin r) E} (h : M.rank = 0) :
   rw [map_zero,Matrix.toLin'_apply']
   exact LinearMap.range_eq_bot.mp (Submodule.finrank_eq_zero.mp h)
 
-theorem SeriesPole.minimal_width [IsAlgClosed E] [CharZero E] (hr : 0<r)
+theorem SeriesPole.minimal_width [IsAlgClosed E] (hr : 0<r)
     (small : ∀ j<r, DVRMinimal.SafeEverywhere.{u} j) :
     finrank E (D.native 0).ker = r ∧ redP (D.T 0) = 0 := by
   obtain ⟨fin,hn,hc,bad,h⟩ := D.native_facts hr
@@ -47,7 +47,7 @@ theorem SeriesPole.minimal_width [IsAlgClosed E] [CharZero E] (hr : 0<r)
     exact bad.not_ge (small _ hl E D.carrier D.native hc hn rfl)
   exact ⟨he, matrix_zero_of_rank_zero (by omega)⟩
 
-theorem SeriesPole.minimal_nil_ends [IsAlgClosed E] [CharZero E] (hr : 0<r)
+theorem SeriesPole.minimal_nil_ends [IsAlgClosed E] (hr : 0<r)
     (small : ∀ j<r, DVRMinimal.SafeEverywhere.{u} j) :
     letI : FiniteDimensional E D.carrier := (D.native_facts hr).1
     ∃ (chi : Fin 3 → E) (_ : chi 0 = 0) (hnil : ∀ i, IsNilpotent (shifted D.native chi i)),

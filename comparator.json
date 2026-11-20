@@ -2,7 +2,7 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "Gerstenhaber.charZero_three_commuting_matrices"
+    "Gerstenhaber.finrank_adjoin_triple_le"
   ],
   "definition_names": [],
   "permitted_axioms": [

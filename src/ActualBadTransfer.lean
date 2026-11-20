@@ -54,7 +54,7 @@ end BadPole
 /-- End-to-end pole transfer for actual bad DVR data. The target automatically has
 an actual bad presented module, and its six reduced matrices generate a field of exact
 transcendence degree 3r²−1. -/
-theorem actual_bad_transfer [CharZero k] {V : Type*} [CommRing V] [IsDomain V]
+theorem actual_bad_transfer [PerfectField k] {V : Type*} [CommRing V] [IsDomain V]
     [IsDiscreteValuationRing V] [Algebra k V] (hr : 0 < r) (T : Fin 6 → GKGraph.Mat V r)
     (ht : (T 0).det ≠ 0) (hT : GKGraph.Relations r T) (bad : BadDatum T hT) :
     ∃ s : GKGraph.selectCols r, Nonempty (BadPole k r (GKGraph.universalMinor k r s)) := by

@@ -11,17 +11,11 @@ noncomputable section
 namespace DVRMinimal
 open Polynomial
 
-theorem charZero_formallySmooth (k F : Type*) [Field k] [CharZero k] [Field F] [Algebra k F] :
-    Algebra.FormallySmooth k F := by
-  obtain ⟨s,hs⟩ := exists_isTranscendenceBasis k F
-  letI := hs.isAlgebraic_field
-  exact Algebra.FormallySmooth.of_algebraicIndependent_of_isSeparable hs.1
-
-theorem finiteJet_section {k B F : Type*} [Field k] [CharZero k]
-    [CommRing B] [Field F] [Algebra k B] [Algebra k F] (q : B →ₐ[k] F)
+/-- A formally smooth residue field admits a section through every nilpotent thickening. -/
+theorem finiteJet_section {k B F : Type*} [Field k]
+    [CommRing B] [Field F] [Algebra k B] [Algebra k F] [Algebra.FormallySmooth k F] (q : B →ₐ[k] F)
     (hq : Function.Surjective q) (hn : IsNilpotent (RingHom.ker q.toRingHom)) :
     ∃ s : F →ₐ[k] B, ∀ a, q (s a) = a := by
-  letI := charZero_formallySmooth k F
   exact ⟨Algebra.FormallySmooth.liftOfSurjective (AlgHom.id k F) q hq hn,
     Algebra.FormallySmooth.liftOfSurjective_apply _ _ _ _⟩
 
@@ -47,9 +41,9 @@ theorem polynomial_jet (B F : Type*) [CommRing B] [Field F] (q : B →+* F)
   obtain ⟨p,v,hp⟩ := aux N x
   exact ⟨p,by simpa [hN] using hp.symm⟩
 
-/-- No coefficient field in V: the section exists in V / m^N. -/
-theorem coefficient_truncation {k V : Type*} [Field k] [CharZero k] [CommRing V]
-    [Algebra k V] (m : Ideal V) [m.IsMaximal] (N : ℕ) (hN : 0<N) :
+/-- A coefficient section in the finite quotient of the local ring. -/
+theorem coefficient_truncation {k V : Type*} [Field k] [CommRing V]
+    [Algebra k V] (m : Ideal V) [m.IsMaximal] [Algebra.FormallySmooth k (V ⧸ m)] (N : ℕ) (hN : 0<N) :
     ∃ s : (V ⧸ m) →ₐ[k] (V ⧸ m^N), ∀ a,
         Ideal.Quotient.factorₐ k (Ideal.pow_le_self hN.ne' : m^N ≤ m) (s a)=a := by
   letI : Field (V ⧸ m) := Ideal.Quotient.field m
@@ -60,7 +54,6 @@ theorem coefficient_truncation {k V : Type*} [Field k] [CharZero k] [CommRing V]
     refine ⟨N,?_⟩
     rw [Ideal.Quotient.factor_ker,←Ideal.map_pow,Ideal.map_quotient_self]; rfl
 
-#print axioms charZero_formallySmooth
 #print axioms finiteJet_section
 #print axioms polynomial_jet
 #print axioms coefficient_truncation

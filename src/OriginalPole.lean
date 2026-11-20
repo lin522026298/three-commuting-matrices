@@ -15,7 +15,7 @@ attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
 /-- The selected index is literally the same on the original minimal seed and the closed jet.
 The coefficient field of the jet is the algebraic closure of the intrinsic pole's residue field,
 not a substituted copy of the seed field. -/
-structure RealWitness (k : Type u) [Field k] [CharZero k] (r : ℕ) where
+structure RealWitness (k : Type u) [Field k] [IsAlgClosed k] (r : ℕ) where
   seed : Fin 6 → Mat (O k) r
   rel : Relations r seed
   det_ne : (seed 0).det ≠ 0
@@ -52,7 +52,7 @@ theorem real_pole_at_minimum {r : ℕ} (A : BadAt.{u} r) (hr : 0<r) : Nonempty (
   obtain ⟨S,hs⟩ := pole_to_algebraic_closure B
   exact ⟨⟨G,rel,hp,s,low,B,S,hs,closureField_count B⟩⟩
 
-theorem original_matrix_pole (k : Type u) [Field k] [IsAlgClosed k] [CharZero k] {n : ℕ}
+theorem original_matrix_pole (k : Type u) [Field k] [IsAlgClosed k] {n : ℕ}
     (A : Fin 3 → Matrix (Fin n) (Fin n) k) (hc : ∀ i j, Commute (A i) (A j))
     (bad : n<finrank k (Algebra.adjoin k (Set.range A))) :
     ∃ r, 2≤r ∧ r≤n ∧ (∀j<r,SafeEverywhere.{u} j) ∧

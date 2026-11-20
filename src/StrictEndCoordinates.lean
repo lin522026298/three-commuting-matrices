@@ -11,7 +11,7 @@ namespace GKEnds
 open Module LinearMap DivisorG3 PowerSeries IsDiscreteValuationRing
 open DVRMinimal GKGraph
 universe u
-variable {k : Type u} [Field k] [IsAlgClosed k] [CharZero k] (r : ℕ)
+variable {k : Type u} [Field k] [IsAlgClosed k] (r : ℕ)
 
 /-- Direct entry point: a genuine column selection on an arbitrary power-series presentation,
 without a separately specified finite triple, minimality of the presentation, eigenvalues,

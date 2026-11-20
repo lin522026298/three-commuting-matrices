@@ -14,8 +14,8 @@ variable {V : Type*} [CommRing V] [IsDomain V]
 
 /-- An exact (not assumed) coefficient/residue-preserving finite jet model.
 The inverse direction is used to transport arbitrary polynomial graph identities. -/
-theorem dvrJetTransfer (k : Type*) [Field k] [CharZero k] [Algebra k V]
-    (t : V) (ht : Irreducible t) (m : Ideal V) [m.IsMaximal] (hm : m=Ideal.span {t})
+theorem dvrJetTransfer (k : Type*) [Field k] [Algebra k V]
+    (t : V) (ht : Irreducible t) (m : Ideal V) [m.IsMaximal] [Algebra.FormallySmooth k (V ⧸ m)] (hm : m=Ideal.span {t})
     (N : ℕ) (hN : 0<N) :
     let F := V ⧸ m
     ∃ e : (V ⧸ JetI t N) ≃+* (PowerSeries F ⧸ JetI PowerSeries.X N),

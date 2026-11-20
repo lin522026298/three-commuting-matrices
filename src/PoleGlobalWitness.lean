@@ -10,20 +10,20 @@ namespace GKDivisor.Jet
 open PowerSeries Module Gerstenhaber.FourBlocks.PrimaryDecomposition Gerstenhaber.FourBlocks.MinimalSource
 universe u
 attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
-variable {k : Type u} [Field k] [CharZero k] {r : ℕ} {s : GKGraph.selectCols r}
+variable {k : Type u} [Field k] [PerfectField k] {r : ℕ} {s : GKGraph.selectCols r}
 
 abbrev ClosedF (B : BadPole k r (GKGraph.universalMinor k r s)) :=
   AlgebraicClosure (IsLocalRing.ResidueField B.V)
 def graphAtClosure (B : BadPole k r (GKGraph.universalMinor k r s)) : GKGraph.ring k r →ₐ[k] ClosedF B :=
   (IsScalarTower.toAlgHom k (IsLocalRing.ResidueField B.V) (ClosedF B)).comp B.residualMap
 
-omit [CharZero k] in
+omit [PerfectField k] in
 theorem closureField_count (B : BadPole k r (GKGraph.universalMinor k r s)) :
     Algebra.trdeg k (GKGraph.residueCoordinates k r (graphAtClosure B)) + 1 = (3*r*r : ℕ) := by
   rw [graphAtClosure,←GKGraph.coords_trdeg_map]
   exact B.field_count
 
-omit [CharZero k] in
+omit [PerfectField k] in
 /-- Literal matrices, not merely entries up to conjugacy, agree with the reduced
 graph data used in the Jordan count. -/
 theorem matrices_at_center {E : Type u} [Field E] [Algebra k E] (S : SeriesPole k E r s)
@@ -46,7 +46,6 @@ theorem bad_pole_minimal_actual (B : BadPole k r (GKGraph.universalMinor k r s))
         DVRMinimal.TwoEnds (FiniteNilTriple.of S.carrier (shifted S.native χ)
           (shifted_commute S.native χ (S.native_facts hr).2.2.1) hn) ∧
         finrank (ClosedF B) S.carrier < finrank (ClosedF B) (Generated (shifted S.native χ)) := by
-  letI : CharZero (ClosedF B) := charZero_of_injective_algebraMap (algebraMap k (ClosedF B)).injective
   obtain ⟨S,hs⟩ := pole_to_algebraic_closure B
   have ⟨eq,zero⟩ := S.minimal_width hr small
   exact ⟨S,hs,closureField_count B,zero,eq,S.minimal_nil_ends hr small⟩

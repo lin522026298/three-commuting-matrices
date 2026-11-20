@@ -14,6 +14,7 @@ lean_lib Challenge
 lean_lib G3Development where
   srcDir := "src"
   roots := #[
+    `GKFiniteFrobenius, `AllFieldMatrices, `FieldReduction,
     `ActorIndex, `ActualBadTransfer, `ActualClosedJet,
     `ActualEnds, `ActualMinimalEnds, `ActualPairParameters,
     `ActualSixJet, `AffineNormalization, `AffinePoleResidue,

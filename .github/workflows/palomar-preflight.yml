@@ -1,7 +1,7 @@
 name: Palomar mechanical preflight
 on:
   push:
-    branches: [palomar-charzero]
+    branches: [palomar-all-fields]
 permissions:
   contents: read
 jobs:
@@ -11,7 +11,7 @@ jobs:
       repository: ${{ github.repository }}
       commit: ${{ github.sha }}
       pipeline_commit: 14aa8d6b3c2f14a8540605e37144560b9a00e7e7
-      request_id: g3charzero01
+      request_id: g3allfield01
       mode: full
       execution_profile: palomar-standard-v1
       options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'

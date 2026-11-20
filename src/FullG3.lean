@@ -12,17 +12,16 @@ open Module GKGraph GKDivisor GKDivisor.Jet GKEnds DVRMinimal
 attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
 /-- Does not assume an orbit dimension, Jordan model, coordinate budget, divisor,
 geometric conjecture, local quotient bound or small-n matrix result. -/
-theorem not_actual_witness {k : Type} [Field k] [CharZero k] {r : ℕ} (W : RealWitness k r)
+theorem not_actual_witness {k : Type} [Field k] [IsAlgClosed k] {r : ℕ} (W : RealWitness k r)
     (hr : 2≤r) (small : ∀ j<r, SafeEverywhere.{0} j) : False := by
-  let _ : CharZero (ClosedF W.pole) := charZero_of_injective_algebraMap (algebraMap k _).injective
   obtain ⟨h0,a,b,ha,hb⟩ := actual_center_pairs W (by omega) small
   obtain ⟨s,hs,hs1,hs2⟩ := GKGauge.subregular_pair_parameters (k:=k) _ _ ha.comm ha.nilY ha.nilZ ha.width
   obtain ⟨t,ht,ht1,ht2⟩ := GKGauge.subregular_pair_parameters (k:=k) _ _ hb.comm hb.nilY hb.nilZ hb.width
   exact witness_budget_impossible W hr a b s t hs ht h0 hs1 hs2 ht1 ht2
 
-/-- Literal arbitrary-size commuting triples over a characteristic-zero algebraically closed
+/-- Literal arbitrary-size commuting triples over a algebraically closed
 field in Type 0, including C. No chosen nilpotent coordinate or joint-primary form. -/
-theorem matrix_triple_bound (k : Type) [Field k] [IsAlgClosed k] [CharZero k] (n : ℕ)
+theorem matrix_triple_bound (k : Type) [Field k] [IsAlgClosed k] (n : ℕ)
     (A : Fin 3 → Matrix (Fin n) (Fin n) k) (hc : ∀ i j, Commute (A i) (A j)) :
     finrank k (Algebra.adjoin k (Set.range A))≤n := by
   by_contra! bad

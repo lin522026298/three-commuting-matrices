@@ -8,7 +8,7 @@ namespace G3Assembly
 open Module GKGraph GKDivisor GKDivisor.Jet DVRMinimal
 universe u
 attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
-variable {k : Type u} [Field k] [CharZero k] {r : ℕ}
+variable {k : Type u} [Field k] [IsAlgClosed k] {r : ℕ}
 theorem witness_budget_impossible (W : RealWitness k r) (hr : 2≤r) (a b : ClosedF W.pole)
     (s t : Finset (ClosedF W.pole)) (hs : s.card≤r*r-2) (ht : t.card≤r*r-2)
     (h0 : reducedMatrices k r (graphAtClosure W.pole) 0=0)

@@ -12,7 +12,7 @@ open Gerstenhaber.FourBlocks.PrimaryDecomposition Gerstenhaber.FourBlocks.Minima
 open Gerstenhaber.FourBlocks.HeadBounds
 
 universe u
-def SafeEverywhere (r : ℕ) : Prop := ∀ (k : Type u) [Field k] [IsAlgClosed k] [CharZero k], SafeAt k r
+def SafeEverywhere (r : ℕ) : Prop := ∀ (k : Type u) [Field k] [IsAlgClosed k], SafeAt k r
 
 theorem first_failure_any_field {s : ℕ} (hf : ¬SafeEverywhere.{u} s) :
     ∃ r ≤ s, (¬SafeEverywhere.{u} r) ∧ ∀ j<r, SafeEverywhere.{u} j := by
@@ -60,7 +60,7 @@ theorem nil_failure_two_at_each_end (X : FiniteNilTriple k)
   change 2≤finrank k (Algebra.lsmul k k H y).ker ∧ 2≤finrank k (Algebra.lsmul k k T y).ker
   omega
 
-variable [IsAlgClosed k] [CharZero k] {W : Type u} [AddCommGroup W] [Module k W] [FiniteDimensional k W]
+variable [IsAlgClosed k] {W : Type u} [AddCommGroup W] [Module k W] [FiniteDimensional k W]
 theorem least_bad_shifted_two_ends (T : Fin 3 → Module.End k W)
     (hc : ∀ i j, Commute (T i) (T j)) (hn : IsNilpotent (T 0))
     (bad : finrank k W < finrank k (Generated T))

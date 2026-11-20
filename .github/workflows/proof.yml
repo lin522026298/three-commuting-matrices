@@ -1,4 +1,4 @@
-name: Check the characteristic-zero proof
+name: Check the three-matrix proof over arbitrary fields
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read

@@ -9,7 +9,7 @@ noncomputable section
 namespace GKDivisor.Jet
 open PowerSeries IsDiscreteValuationRing
 universe u
-attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
+attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg BadPole.residue_ess
 variable {k : Type u} [Field k] {r : ℕ} {s : GKGraph.selectCols r}
 
 def constEntries {E : Type*} [Field E] (T : Fin 6 → GKGraph.Mat (PowerSeries E) r) :
@@ -63,7 +63,7 @@ theorem realize_series {E : Type u} [Field E] [Algebra k E]
   · rw [se,he]
     exact B.count
 
-theorem pole_to_series [CharZero k] (B : BadPole k r (GKGraph.universalMinor k r s)) :
+theorem pole_to_series [PerfectField k] (B : BadPole k r (GKGraph.universalMinor k r s)) :
     ∃ S : SeriesPole k (IsLocalRing.ResidueField B.V) r s,
       constEntries S.T = B.residualMap ∘ GKGraph.gcoord k r := by
   obtain ⟨a,d,ha,hd,hl⟩ := pole_orders B

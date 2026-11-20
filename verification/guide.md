@@ -11,12 +11,23 @@ The paper starts with the least number of Jordan blocks of a nilpotent generator
 | Identify the kernel action and constrain both ends | [ActualEnds.lean](../src/ActualEnds.lean), `actual_tail`, and [RealCenters.lean](../src/RealCenters.lean), `actual_center_pairs` |
 | Count the two nilpotent pairs and rule out a divisor | [ActualPairParameters.lean](../src/ActualPairParameters.lean), `subregular_pair_parameters`, and [WitnessBudget.lean](../src/WitnessBudget.lean) |
 | Three ordinary complex matrices | [FullG3.lean](../src/FullG3.lean), `G3Assembly.complex_three_matrices` |
-| Extension of the base field and arbitrary characteristic-zero matrices | [ScalarMatrixActor.lean](../src/ScalarMatrixActor.lean) and [CharZeroMatrices.lean](../src/CharZeroMatrices.lean), `G3Scalar.charZero_three_matrices` |
+| Finite normalization over a perfect field | [AffineNormalization.lean](../src/AffineNormalization.lean) and [GKFiniteFrobenius.lean](../src/GKFiniteFrobenius.lean) |
+| Change of field, including the reduction to a small algebraically closed field | [FieldReduction.lean](../src/FieldReduction.lean) |
+| Three named matrices over an arbitrary field | [AllFieldMatrices.lean](../src/AllFieldMatrices.lean), `G3Scalar.field_three_matrices` |
+| Independent problem statement, with commutativity expressed on the set of three matrices | [Challenge.lean](../Challenge.lean) and [Solution.lean](../Solution.lean), `Gerstenhaber.finrank_adjoin_triple_le` |
 | Complex theorem expressed with three multiplication equalities | [StatementContract.lean](StatementContract.lean), `all_complex_matrices_contract` |
 
-The geometric proof takes transverse arcs at closed points on the normalization. The formal proof constructs a finite jet at a generic point and transports its endomorphisms to power series. The appendix explains why both constructions preserve the same strict minor inequality. The characteristic-zero condition enters the formal construction of that jet.
+The geometric proof takes transverse arcs at closed points on the normalization.
+The formal proof constructs a finite jet at a generic point and transports its
+endomorphisms to power series. The appendix of the v1.1 paper describes the
+jet construction over characteristic zero. On this branch, the geometric base
+is algebraically closed and hence perfect, and the actual divisor residue field
+is essentially of finite type over it. Formal smoothness gives the required
+section of the nilpotent quotient. A finite iterate of Frobenius handles the
+inseparable part in the normalization argument. Change of field then gives the
+matrix inequality over the original field.
 
-## Verification record
+## Archived verification record for v1.1
 
 Lean **4.36.0-rc2** (commit `b35cb10cf2ced51a2fd1880cfdbf75c71ab7a35a`) and mathlib `07977d2921637684e9ecdf70fc1927570233637d` are pinned. [Source hashes in compilation order](modules.tsv) cover 136 base modules and the two extension modules.
 

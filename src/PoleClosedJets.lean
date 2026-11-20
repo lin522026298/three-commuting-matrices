@@ -8,8 +8,8 @@ noncomputable section
 namespace GKDivisor.Jet
 open PowerSeries IsDiscreteValuationRing
 universe u
-attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg
-variable {k : Type u} [Field k] [CharZero k] {r : ℕ} {s : GKGraph.selectCols r}
+attribute [local instance] BadPole.cr BadPole.dom BadPole.dvr BadPole.alg BadPole.residue_ess
+variable {k : Type u} [Field k] [PerfectField k] {r : ℕ} {s : GKGraph.selectCols r}
 
 /-- There is no bound on the size of the target coefficient field, and no cost in
 transcendence degree of the six matrices themselves. The original coordinates are carried

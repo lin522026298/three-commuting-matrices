@@ -1,4 +1,4 @@
-"""Check the frozen sources and reproduce the characteristic-zero proofs."""
+"""Check the source manifest and reproduce the matrix dimension bounds."""
 import argparse
 import hashlib
 import json
@@ -14,6 +14,7 @@ SOURCE = ROOT / "src"
 LOCK = "7619243bb824c928b94de0be435df73bdd1cd6213e8c32151f3e0a1666bbff80"
 REPORTS = {
     "FullG3": "G3Assembly.complex_three_matrices",
+    "AllFieldMatrices": "G3Scalar.field_three_matrices",
     "CharZeroMatrices": "G3Scalar.charZero_three_matrices",
     "StatementContract": "all_complex_matrices_contract",
 }
@@ -37,7 +38,7 @@ def checked_plan():
         if name in modules or checksum(src) != digest:
             raise SystemExit(f"Invalid module entry: {name}")
         modules[name] = src
-    if set(modules.values()) != set(SOURCE.rglob("*.lean")) or len(modules) != 138:
+    if set(modules.values()) != set(SOURCE.rglob("*.lean")):
         raise SystemExit("Source file set differs from the frozen proof.")
     imports = set()
     earlier = set()
@@ -110,7 +111,7 @@ def main():
             compile_file(lean, env, SOURCE, src, target, name)
         contract = ROOT / "verification" / "StatementContract.lean"
         compile_file(lean, env, contract.parent, contract, out / "StatementContract.olean", "StatementContract")
-    print("Both endpoints and the complex export client passed.", flush=True)
+    print("The arbitrary-field and specialized endpoints and the complex client passed.", flush=True)
 
 if __name__ == "__main__":
     main()

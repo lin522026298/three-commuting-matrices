@@ -17,7 +17,8 @@ theorem order_injective_map {F L : Type*} [Field F] [Field L] (φ : F →+* L)
   apply PowerSeries.order_eq_nat.mpr
   exact ⟨by rwa [coeff_map,ne_eq,map_eq_zero_iff φ φ.injective], fun i hi => by rw [coeff_map,h i hi,map_zero]⟩
 
-theorem actual_closed_jet (r : ℕ) (k : Type*) [Field k] [CharZero k] [Algebra k V]
+theorem actual_closed_jet (r : ℕ) (k : Type*) [Field k] [Algebra k V]
+    [Algebra.FormallySmooth k (ResidueField V)]
     (L : Type*) [Field L] (φ : ResidueField V →+* L)
     (T : Fin 6 → GKGraph.Mat V r) (hT : Relations r T) (s : selectCols r)
     (u : V) (hu : Irreducible u) (a d N : ℕ) (hA : addVal V (T 0).det=a)

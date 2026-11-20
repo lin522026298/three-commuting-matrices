@@ -22,7 +22,7 @@ abbrev Norm (R : Type*) [CommRing R] := integralClosure R (FractionRing R)
 
 /-- This prime and its DVR are produced from q itself.
 The residue field has precisely one fewer transcendence parameter over k. -/
-theorem affine_pole_residue (k R : Type u) [Field k] [CharZero k]
+theorem affine_pole_residue (k R : Type u) [Field k] [PerfectField k]
     [CommRing R] [IsDomain R] [Algebra k R] [Algebra.FiniteType k R]
     (q : R) (hq : q ≠ 0) (hn : ¬ IsUnit q) :
     ∃ P : Ideal (Norm R), ∃ hp : P.IsPrime, algebraMap R (Norm R) q ∈ P ∧ P.height = 1 ∧

@@ -6,6 +6,8 @@ public import Mathlib.RingTheory.DedekindDomain.IntegralClosure
 public import Mathlib.RingTheory.Algebraic.Integral
 public import Mathlib.RingTheory.Localization.Finiteness
 public import Mathlib.FieldTheory.SeparableDegree
+public import Mathlib.FieldTheory.PurelyInseparable.Exponent
+public import GKFiniteFrobenius
 
 @[expose] public section
 
@@ -17,9 +19,65 @@ namespace GKDivisor
 open scoped nonZeroDivisors
 attribute [local instance] FractionRing.liftAlgebra
 
-/-- Finiteness of affine normalisation in characteristic zero: Noether normalization and the
-trace-dual bound for the integral closure in a finite separable field extension. -/
-theorem finite_affine_normalization (k R : Type*) [Field k] [CharZero k]
+private theorem finite_left_of_injective {A B C : Type*}
+    [CommRing A] [CommRing B] [CommRing C] [IsNoetherianRing A]
+    (f : A →+* B) (g : B →+* C) (hg : Function.Injective g)
+    (h : (g.comp f).Finite) : f.Finite := by
+  algebraize [f, g, g.comp f]
+  exact Module.Finite.of_injective ((Algebra.linearMap B C).restrictScalars A) hg
+
+/-- A uniform Frobenius power embeds the integral closure into the
+integral closure in the separable subextension. On scalars this embedding
+acts by a finite endomorphism. -/
+private theorem finite_integralClosure_over_polynomial (k S K L : Type*)
+    [Field k] [PerfectField k] [CommRing S] [IsDomain S] [IsIntegrallyClosed S]
+    [IsNoetherianRing S] [Algebra k S] [Algebra.FiniteType k S]
+    [Field K] [Algebra S K] [IsFractionRing S K] [Field L]
+    [Algebra S L] [Algebra K L] [IsScalarTower S K L] [FiniteDimensional K L] :
+    Module.Finite S (integralClosure S L) := by
+  let T := separableClosure K L
+  letI : Algebra S T := ((algebraMap K T).comp (algebraMap S K)).toAlgebra
+  haveI : IsScalarTower S K T := IsScalarTower.of_algebraMap_eq' rfl
+  haveI : IsScalarTower S T L := IsScalarTower.of_algebraMap_eq fun x ↦
+    IsScalarTower.algebraMap_apply S K L x
+  haveI : FiniteDimensional K T := inferInstanceAs (FiniteDimensional K (separableClosure K L))
+  haveI : Algebra.IsSeparable K T := inferInstanceAs (Algebra.IsSeparable K (separableClosure K L))
+  haveI : IsPurelyInseparable T L := inferInstanceAs (IsPurelyInseparable (separableClosure K L) L)
+  haveI : FiniteDimensional T L := Module.Finite.of_restrictScalars_finite K T L
+  let D := integralClosure S L
+  let C := integralClosure S T
+  haveI : Module.Finite S C := IsIntegralClosure.finite S K T C
+  obtain ⟨p, hp⟩ := ExpChar.exists k
+  haveI : ExpChar S p := expChar_of_injective_algebraMap (algebraMap k S).injective p
+  haveI : ExpChar K p := expChar_of_injective_algebraMap (IsFractionRing.injective S K) p
+  haveI : ExpChar T p := expChar_of_injective_algebraMap (algebraMap K T).injective p
+  haveI : ExpChar L p := expChar_of_injective_algebraMap (algebraMap K L).injective p
+  let e := IsPurelyInseparable.exponent T L
+  have hpow (x : L) : x ^ p ^ e ∈ T := by
+    obtain ⟨y, hy⟩ := IsPurelyInseparable.exponent_def' T p x
+    rw [← hy]
+    exact y.property
+  let ψ : L →+* T := (iterateFrobenius L p e).codRestrict T.toSubfield.toSubring hpow
+  let g : D →+* C := (ψ.comp D.val.toRingHom).codRestrict C.toSubring fun x ↦ by
+    change IsIntegral S (ψ x.val)
+    apply (isIntegral_algebraMap_iff (B := L)).mp
+    exact x.property.pow _
+  have heq : g.comp (algebraMap S D) = (algebraMap S C).comp (iterateFrobenius S p e) := by
+    ext x
+    change (algebraMap S L x) ^ p ^ e = algebraMap T L (algebraMap S T (x ^ p ^ e))
+    rw [← IsScalarTower.algebraMap_apply, map_pow]
+  have hg : Function.Injective g := by
+    intro a b h
+    exact Subtype.ext (ψ.injective (congrArg Subtype.val h))
+  apply (RingHom.finite_algebraMap).mp
+  apply finite_left_of_injective _ g hg
+  rw [heq]
+  exact (RingHom.finite_algebraMap.mpr inferInstance).comp (finite_iterateFrobenius k S p e)
+
+/-- The normalization of an affine domain over a perfect field is finite. After
+Noether normalization, the trace bound handles the separable subextension and
+a finite Frobenius on the polynomial ring handles the purely inseparable part. -/
+theorem finite_affine_normalization (k R : Type*) [Field k] [PerfectField k]
     [CommRing R] [IsDomain R] [Algebra k R] [Algebra.FiniteType k R] :
     Module.Finite R (integralClosure R (FractionRing R)) := by
   obtain ⟨n, f, hinj, hfin⟩ := exists_finite_inj_algHom_of_fg k R
@@ -41,12 +99,14 @@ theorem finite_affine_normalization (k R : Type*) [Field k] [CharZero k]
   haveI : Algebra.IsIntegral S B := Algebra.IsIntegral.trans R
   haveI : IsIntegrallyClosedIn B L := IsIntegrallyClosedIn.of_isIntegralClosure R
   haveI : IsIntegralClosure B S L := IsIntegralClosure.of_isIntegrallyClosedIn
-  haveI : Module.Finite S B := IsIntegralClosure.finite S K L B
+  haveI : Module.Finite S (integralClosure S L) := finite_integralClosure_over_polynomial k S K L
+  haveI : Module.Finite S B := Module.Finite.equiv
+    (IsIntegralClosure.equiv S (integralClosure S L) L B).toLinearEquiv
   exact Module.Finite.of_restrictScalars_finite S R B
 
-/-- For any affine domain of characteristic zero a nonzero nonunit defines a DVR on the
-finite normalization. Its center really contains the original element. -/
-theorem affine_nonunit_divisor (k R : Type*) [Field k] [CharZero k]
+/-- In an affine domain over a perfect field, a nonzero nonunit vanishes at the
+center of a height-one discrete valuation on the normalization. -/
+theorem affine_nonunit_divisor (k R : Type*) [Field k] [PerfectField k]
     [CommRing R] [IsDomain R] [Algebra k R] [Algebra.FiniteType k R]
     (q : R) (hq : q ≠ 0) (hn : ¬ IsUnit q) :
     let N := integralClosure R (FractionRing R)

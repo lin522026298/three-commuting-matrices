@@ -10,7 +10,6 @@ structure BadAt (r : ℕ) where
   k : Type u
   [field : Field k]
   [closed : IsAlgClosed k]
-  [char0 : CharZero k]
   W : Type u
   [group : AddCommGroup W]
   [module_ : Module k W]
@@ -20,7 +19,7 @@ structure BadAt (r : ℕ) where
   hn : IsNilpotent (T 0)
   width : finrank k (T 0).ker=r
   bad : finrank k W<finrank k (Generated T)
-attribute [instance] BadAt.field BadAt.closed BadAt.char0 BadAt.group BadAt.module_ BadAt.finite
+attribute [instance] BadAt.field BadAt.closed BadAt.group BadAt.module_ BadAt.finite
 
 theorem badAt_iff (r : ℕ) : Nonempty (BadAt.{u} r) ↔ ¬SafeEverywhere.{u} r := by
   constructor
@@ -30,15 +29,15 @@ theorem badAt_iff (r : ℕ) : Nonempty (BadAt.{u} r) ↔ ¬SafeEverywhere.{u} r 
     intro h
     by_contra hn
     apply h
-    intro k _ _ _ W _ _ _ T hc ht hr
+    intro k _ _ W _ _ _ T hc ht hr
     apply le_of_not_gt
     intro hb
     exact hn ⟨{k:=k,W:=W,T:=T,hc:=hc,hn:=ht,width:=hr,bad:=hb}⟩
 
 /-- A completely arbitrary bad triple of actual matrices, without joint-primary
 or nilpotence supplied, furnishes a nonempty least width r across all algebraically
-closed characteristic-zero fields, with real witnesses of that width. -/
-theorem arbitrary_matrix_to_least (k : Type u) [Field k] [IsAlgClosed k] [CharZero k]
+closed fields, with real witnesses of that width. -/
+theorem arbitrary_matrix_to_least (k : Type u) [Field k] [IsAlgClosed k]
     (n : ℕ) (A : Fin 3 → Matrix (Fin n) (Fin n) k) (hc : ∀ i j,Commute (A i) (A j))
     (hb : n<finrank k (Algebra.adjoin k (Set.range A))) :
     ∃ r ≤ n, Nonempty (BadAt.{u} r) ∧ ∀ j<r,SafeEverywhere.{u} j := by
@@ -79,7 +78,7 @@ theorem minimal_width_at_least_two {r : ℕ} (B : BadAt.{u} r)
     rw [h0,zero_smul,sub_zero]
   rw [hz,B.width] at h; exact h
 
-theorem arbitrary_matrix_to_least_positive (k : Type u) [Field k] [IsAlgClosed k] [CharZero k]
+theorem arbitrary_matrix_to_least_positive (k : Type u) [Field k] [IsAlgClosed k]
     (n : ℕ) (A : Fin 3 → Matrix (Fin n) (Fin n) k) (hc : ∀ i j,Commute (A i) (A j))
     (hb : n<finrank k (Algebra.adjoin k (Set.range A))) :
     ∃ r, 2≤r ∧ r≤n ∧ Nonempty (BadAt.{u} r) ∧ ∀ j<r,SafeEverywhere.{u} j := by

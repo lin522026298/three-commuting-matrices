@@ -76,7 +76,8 @@ theorem six_jet_over (F : Type*) [Field F] (ρ : V →+* F)
   · exact pres i j D 4 dD
   · exact pres i j C 5 dC
 
-theorem actual_six_jet (k : Type*) [Field k] [CharZero k] [Algebra k V]
+theorem actual_six_jet (k : Type*) [Field k] [Algebra k V]
+    [Algebra.FormallySmooth k (ResidueField V)]
     (T : Fin 6 → GKGraph.Mat V r) (hT : Relations r T) (s : selectCols r)
     (u : V) (hu : Irreducible u) (a d N : ℕ) (hA : addVal V (T 0).det=a)
     (hD : addVal V (fullMinor r (T 0) (T 1) (T 2) s)=d)
@@ -85,6 +86,7 @@ theorem actual_six_jet (k : Type*) [Field k] [CharZero k] [Algebra k V]
       Relations r S ∧ (S 0).det.order=a ∧ (fullMinor r (S 0) (S 1) (S 2) s).order=d ∧
         ∀ l i j, constantCoeff (S l i j) = residue V (T l i j) := by
   let m := IsLocalRing.maximalIdeal V
+  letI : Algebra.FormallySmooth k (V ⧸ m) := ‹Algebra.FormallySmooth k (ResidueField V)›
   have hm : m=Ideal.span {u} := (irreducible_iff_uniformizer u).mp hu
   obtain ⟨e,et,ec⟩ := dvrJetTransfer k u hu m hm N (by omega)
   exact six_jet_over r (ResidueField V) (residue V) T hT s u hu a d N hA hD ha hd e et ec

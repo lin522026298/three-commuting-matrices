@@ -13,7 +13,7 @@ noncomputable section
 namespace GKDivisor
 
 universe u
-variable (k : Type u) [Field k] [CharZero k] (r : ℕ)
+variable (k : Type u) [Field k] [PerfectField k] (r : ℕ)
 
 abbrev invGraph (h : GKGraph.ring k r) :=
   GKRational.adj (K := GKGraph.K k r) ((GKGraph.gdelta k r) ^ (r-1)) h
@@ -21,7 +21,7 @@ abbrev invGraph (h : GKGraph.ring k r) :=
 abbrev invCoord (h : GKGraph.ring k r) : invGraph k r h :=
   GKRational.q (K := GKGraph.K k r) _ _
 
-omit [CharZero k] in
+omit [PerfectField k] in
 theorem invGraph_trdeg (h : GKGraph.ring k r) :
     Algebra.trdeg k (invGraph k r h) = (3*r*r : ℕ) := by
   apply le_antisymm

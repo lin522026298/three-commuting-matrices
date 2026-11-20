@@ -41,9 +41,10 @@ def CenterData (k G A : Type u) [Field k] [CommRing G] [CommRing A] [IsDomain A]
     algebraMap A (Norm A) q ∈ P ∧ P.height = 1 ∧
     IsDiscreteValuationRing (@Localization.AtPrime _ _ P hp) ∧
     Algebra.trdeg k (@Ideal.ResidueField _ _ P hp) + 1 = dim ∧
-    Algebra.trdeg k (G ⧸ (P.under A).under G) + 1 = dim
+    Algebra.trdeg k (G ⧸ (P.under A).under G) + 1 = dim ∧
+    Algebra.EssFiniteType k (@Ideal.ResidueField _ _ P hp)
 
-theorem mkCenterData (k G A : Type u) [Field k] [CharZero k] [CommRing G] [CommRing A] [IsDomain A]
+theorem mkCenterData (k G A : Type u) [Field k] [PerfectField k] [CommRing G] [CommRing A] [IsDomain A]
     [Algebra k G] [Algebra k A] [Algebra.FiniteType k A] [Algebra G A] [IsScalarTower k G A]
     (q : A) (m : ℕ) (H : PoleData k A q m)
     (he : ∀ Q : Ideal A, q ∈ Q → Function.Surjective ((Ideal.Quotient.mk Q).comp (algebraMap G A))) :
@@ -51,9 +52,11 @@ theorem mkCenterData (k G A : Type u) [Field k] [CharZero k] [CommRing G] [CommR
   obtain ⟨P,hp,hm,hh,hv,ht⟩ := H
   letI := hp
   letI : Module.Finite A (Norm A) := finite_affine_normalization k A
-  exact ⟨P,hp,hm,hh,hv,ht,(trdeg_center_eq k G A (Norm A) P (he _ hm)) ▸ ht⟩
+  letI : Algebra.FiniteType k (Norm A) := Algebra.FiniteType.trans (inferInstance : Algebra.FiniteType k A) (inferInstance : Algebra.FiniteType A (Norm A))
+  exact ⟨P,hp,hm,hh,hv,ht,(trdeg_center_eq k G A (Norm A) P (he _ hm)) ▸ ht,
+    Algebra.EssFiniteType.comp k (Norm A) P.ResidueField⟩
 
-variable (k : Type u) [Field k] [CharZero k] (r : ℕ)
+variable (k : Type u) [Field k] [PerfectField k] (r : ℕ)
 theorem trueGraph_pole_center {O : Type*} [CommRing O] [IsDomain O] [Algebra k O]
     (T : Fin 6 → GKGraph.Mat O r) (ht : (T 0).det ≠ 0) (hT : GKGraph.Relations r T)
     (h : GKGraph.ring k r) (hd : GKGraph.point k r T ht hT h ≠ 0)
