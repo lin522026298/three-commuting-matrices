@@ -1,4 +1,8 @@
-import GKGraphDimension
+module
+
+public import GKGraphDimension
+
+@[expose] public section
 
 noncomputable section
 namespace GKGraph

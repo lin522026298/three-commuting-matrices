@@ -1,5 +1,9 @@
-import PolePrime
-import Mathlib.RingTheory.IntegralClosure.GoingDown
+module
+
+public import PolePrime
+public import Mathlib.RingTheory.IntegralClosure.GoingDown
+
+@[expose] public section
 
 noncomputable section
 namespace GKDivisor

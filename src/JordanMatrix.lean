@@ -1,4 +1,8 @@
-import JordanNilTest
+module
+
+public import JordanNilTest
+
+@[expose] public section
 
 /-! Literal field-matrix interface.  The block index is h (length h+1), p is
 the level above the socle, and a numbers the strings of that length. -/

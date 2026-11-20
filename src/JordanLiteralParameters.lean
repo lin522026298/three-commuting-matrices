@@ -1,4 +1,8 @@
-import JordanDimension
+module
+
+public import JordanDimension
+
+@[expose] public section
 noncomputable section
 namespace JordanPrimitive
 open Module

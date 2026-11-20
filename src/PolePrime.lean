@@ -1,5 +1,9 @@
-import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
-import Mathlib.RingTheory.DedekindDomain.Dvr
+module
+
+public import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
+public import Mathlib.RingTheory.DedekindDomain.Dvr
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 noncomputable section

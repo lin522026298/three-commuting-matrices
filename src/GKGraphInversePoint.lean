@@ -1,5 +1,9 @@
-import GKGraphIntegral
-import GKRationalAdjunction
+module
+
+public import GKGraphIntegral
+public import GKRationalAdjunction
+
+@[expose] public section
 
 noncomputable section
 namespace GKGraph

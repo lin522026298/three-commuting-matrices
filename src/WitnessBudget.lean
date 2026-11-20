@@ -1,4 +1,8 @@
-import OriginalPole
+module
+
+public import OriginalPole
+
+@[expose] public section
 noncomputable section
 namespace G3Assembly
 open Module GKGraph GKDivisor GKDivisor.Jet DVRMinimal

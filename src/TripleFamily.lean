@@ -1,5 +1,9 @@
-import OriginActor
-import Mathlib.Data.Fin.VecNotation
+module
+
+public import OriginActor
+public import Mathlib.Data.Fin.VecNotation
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap

@@ -1,4 +1,8 @@
-import JordanOrbitCore
+module
+
+public import JordanOrbitCore
+
+@[expose] public section
 noncomputable section
 namespace GKGauge
 open JordanPrimitive Module Matrix Finset

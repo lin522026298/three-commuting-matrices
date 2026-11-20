@@ -1,5 +1,9 @@
-import GKGraphTransport
-import ActorIndex
+module
+
+public import GKGraphTransport
+public import ActorIndex
+
+@[expose] public section
 
 set_option maxHeartbeats 900000
 set_option synthInstance.maxHeartbeats 90000

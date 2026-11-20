@@ -1,7 +1,11 @@
-import HypersurfaceTrdeg
-import HeightContract
-import Mathlib.RingTheory.Finiteness.Quotient
-import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
+module
+
+public import HypersurfaceTrdeg
+public import HeightContract
+public import Mathlib.RingTheory.Finiteness.Quotient
+public import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 set_option maxHeartbeats 350000

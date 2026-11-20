@@ -1,6 +1,10 @@
-import AnyMinors
-import Mathlib.RingTheory.OrderOfVanishing.Noetherian
-import Mathlib.LinearAlgebra.Matrix.Rank
+module
+
+public import AnyMinors
+public import Mathlib.RingTheory.OrderOfVanishing.Noetherian
+public import Mathlib.LinearAlgebra.Matrix.Rank
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module IsDiscreteValuationRing

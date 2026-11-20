@@ -1,5 +1,9 @@
-import GKGraphSpecialize
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
+module
+
+public import GKGraphSpecialize
+public import Mathlib.FieldTheory.IntermediateField.Adjoin.Algebra
+
+@[expose] public section
 
 noncomputable section
 namespace GKGraph

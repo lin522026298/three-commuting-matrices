@@ -1,8 +1,12 @@
-import ScalarMatrixActor
-import FullG3
-import Mathlib.Algebra.Field.Shrink
-import Mathlib.Algebra.Ring.Shrink
-import Mathlib.Logic.Small.Set
+module
+
+public import ScalarMatrixActor
+public import FullG3
+public import Mathlib.Algebra.Field.Shrink
+public import Mathlib.Algebra.Ring.Shrink
+public import Mathlib.Logic.Small.Set
+
+@[expose] public section
 
 noncomputable section
 namespace G3Scalar

@@ -1,6 +1,10 @@
-import GKGraphCore
-import Mathlib.RingTheory.Localization.Away.Basic
-import Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis
+module
+
+public import GKGraphCore
+public import Mathlib.RingTheory.Localization.Away.Basic
+public import Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis
+
+@[expose] public section
 
 noncomputable section
 namespace GKGraph

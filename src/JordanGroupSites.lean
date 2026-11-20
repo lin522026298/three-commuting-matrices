@@ -1,6 +1,10 @@
-import Mathlib.Data.Fintype.EquivFin
-import Mathlib.Algebra.Order.BigOperators.Group.Finset
-import Mathlib.Data.Fin.Rev
+module
+
+public import Mathlib.Data.Fintype.EquivFin
+public import Mathlib.Algebra.Order.BigOperators.Group.Finset
+public import Mathlib.Data.Fin.Rev
+
+@[expose] public section
 noncomputable section
 namespace ActualJordan
 abbrev GroupIx {H : ℕ} (m : Fin H → ℕ) := (h : Fin H) × ((_p : Fin (h.val+1)) × Fin (m h))

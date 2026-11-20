@@ -1,5 +1,9 @@
-import RationalGauge
-import Mathlib.LinearAlgebra.Dimension.StrongRankCondition
+module
+
+public import RationalGauge
+public import Mathlib.LinearAlgebra.Dimension.StrongRankCondition
+
+@[expose] public section
 
 noncomputable section
 namespace GKGauge

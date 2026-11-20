@@ -1,4 +1,8 @@
-import JordanPrimitive
+module
+
+public import JordanPrimitive
+
+@[expose] public section
 
 noncomputable section
 namespace JordanPrimitive

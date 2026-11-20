@@ -1,5 +1,9 @@
-import GraphLifts
-import ActorIndex
+module
+
+public import GraphLifts
+public import ActorIndex
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap Matrix

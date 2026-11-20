@@ -1,6 +1,10 @@
-import MinimalPrimary
-import RegularEnds
-import Gerstenhaber.FourBlocks.MinimalSource.NilThreeSource
+module
+
+public import MinimalPrimary
+public import RegularEnds
+public import Gerstenhaber.FourBlocks.MinimalSource.NilThreeSource
+
+@[expose] public section
 noncomputable section
 namespace DVRMinimal
 open Module LinearMap

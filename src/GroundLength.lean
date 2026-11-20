@@ -1,5 +1,9 @@
-import DVRScalar
-import Mathlib.RingTheory.LocalRing.Length
+module
+
+public import DVRScalar
+public import Mathlib.RingTheory.LocalRing.Length
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module IsLocalRing PowerSeries

@@ -1,8 +1,12 @@
-import Mathlib.LinearAlgebra.Basis.VectorSpace
-import Mathlib.RingTheory.MatrixAlgebra
-import Mathlib.RingTheory.TensorProduct.Basic
-import Mathlib.RingTheory.Flat.Basic
-import Mathlib.LinearAlgebra.Dimension.Constructions
+module
+
+public import Mathlib.LinearAlgebra.Basis.VectorSpace
+public import Mathlib.RingTheory.MatrixAlgebra
+public import Mathlib.RingTheory.TensorProduct.Basic
+public import Mathlib.RingTheory.Flat.Basic
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+
+@[expose] public section
 
 noncomputable section
 open scoped TensorProduct

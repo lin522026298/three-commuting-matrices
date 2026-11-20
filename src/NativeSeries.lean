@@ -1,6 +1,10 @@
-import OriginActor
-import DVRMinors
-import Mathlib.RingTheory.PowerSeries.Trunc
+module
+
+public import OriginActor
+public import DVRMinors
+public import Mathlib.RingTheory.PowerSeries.Trunc
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap Matrix PowerSeries

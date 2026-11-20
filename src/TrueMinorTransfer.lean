@@ -1,5 +1,9 @@
-import ConcretePole
-import GKGraphMinor
+module
+
+public import ConcretePole
+public import GKGraphMinor
+
+@[expose] public section
 
 noncomputable section
 namespace GKDivisor

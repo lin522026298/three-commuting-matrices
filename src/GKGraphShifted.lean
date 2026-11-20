@@ -1,4 +1,8 @@
-import GKGraphCoordinates
+module
+
+public import GKGraphCoordinates
+
+@[expose] public section
 noncomputable section
 namespace GKGraph
 universe u

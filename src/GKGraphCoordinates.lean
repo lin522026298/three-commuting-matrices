@@ -1,5 +1,9 @@
-import GKGraphIntegral
-import Mathlib.Tactic.FinCases
+module
+
+public import GKGraphIntegral
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 noncomputable section
 namespace GKGraph
 universe u

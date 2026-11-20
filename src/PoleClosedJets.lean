@@ -1,5 +1,9 @@
-import PoleJets
-import ActualClosedJet
+module
+
+public import PoleJets
+public import ActualClosedJet
+
+@[expose] public section
 noncomputable section
 namespace GKDivisor.Jet
 open PowerSeries IsDiscreteValuationRing

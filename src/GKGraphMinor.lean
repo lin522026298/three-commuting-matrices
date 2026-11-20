@@ -1,6 +1,10 @@
-import GKGraphInversePoint
-import BlockIndex
-import BoxWords
+module
+
+public import GKGraphInversePoint
+public import BlockIndex
+public import BoxWords
+
+@[expose] public section
 noncomputable section
 namespace GKGraph
 variable (k : Type*) [Field k] (r : ℕ)

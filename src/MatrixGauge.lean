@@ -1,4 +1,8 @@
-import CoordinateChart
+module
+
+public import CoordinateChart
+
+@[expose] public section
 
 noncomputable section
 namespace GKGauge

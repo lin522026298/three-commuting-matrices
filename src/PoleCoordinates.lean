@@ -1,4 +1,8 @@
-import PoleCenter
+module
+
+public import PoleCenter
+
+@[expose] public section
 noncomputable section
 namespace GKDivisor
 universe u

@@ -1,6 +1,10 @@
-import ActualEnds
-import ActorIndex
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+module
+
+public import ActualEnds
+public import ActorIndex
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+
+@[expose] public section
 noncomputable section
 namespace GKDivisor.Jet
 open PowerSeries DivisorG3 Module LinearMap Submodule

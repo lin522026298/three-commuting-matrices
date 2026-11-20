@@ -1,5 +1,9 @@
-import HeadPresentation
-import ActualMinimalEnds
+module
+
+public import HeadPresentation
+public import ActualMinimalEnds
+
+@[expose] public section
 noncomputable section
 namespace GKEnds
 open Module LinearMap Submodule PowerSeries DivisorG3

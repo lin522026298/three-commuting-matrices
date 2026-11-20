@@ -1,6 +1,10 @@
-import IntrinsicDVR
-import DividedTail
-import Mathlib.Data.Matrix.ColumnRowPartitioned
+module
+
+public import IntrinsicDVR
+public import DividedTail
+public import Mathlib.Data.Matrix.ColumnRowPartitioned
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap Submodule Matrix IsDiscreteValuationRing

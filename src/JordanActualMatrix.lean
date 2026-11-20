@@ -1,5 +1,9 @@
-import JordanGroupedModel
-import MatrixOfLinearModel
+module
+
+public import JordanGroupedModel
+public import MatrixOfLinearModel
+
+@[expose] public section
 
 noncomputable section
 open Module Matrix JordanPrimitive

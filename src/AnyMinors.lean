@@ -1,6 +1,10 @@
-import Mathlib.LinearAlgebra.FreeModule.Finite.Quotient
-import Mathlib.LinearAlgebra.Determinant
-import Mathlib.LinearAlgebra.Matrix.ToLin
+module
+
+public import Mathlib.LinearAlgebra.FreeModule.Finite.Quotient
+public import Mathlib.LinearAlgebra.Determinant
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+
+@[expose] public section
 /-! The abstract alternating-volume and Smith-basis lemmas are copied from the locked
 Gerstenhaber.DP2.LinearRow.PIDLattice; its one-excess-column volume proof is adapted here
 to arbitrary row and column finite index types. The original polynomial length-specializations

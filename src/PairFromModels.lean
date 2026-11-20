@@ -1,5 +1,9 @@
-import PairOrbit
-import Mathlib.LinearAlgebra.Matrix.Reindex
+module
+
+public import PairOrbit
+public import Mathlib.LinearAlgebra.Matrix.Reindex
+
+@[expose] public section
 noncomputable section
 namespace GKGauge
 open JordanPrimitive Matrix Module

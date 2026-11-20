@@ -1,5 +1,9 @@
-import NativeSeries
-import TripleFamily
+module
+
+public import NativeSeries
+public import TripleFamily
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap Matrix PowerSeries IsDiscreteValuationRing

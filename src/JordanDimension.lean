@@ -1,5 +1,9 @@
-import JordanStrings
-import JordanKernel
+module
+
+public import JordanStrings
+public import JordanKernel
+
+@[expose] public section
 noncomputable section
 namespace JordanPrimitive
 open Module

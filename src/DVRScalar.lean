@@ -1,9 +1,13 @@
-import Mathlib.RingTheory.PowerSeries.Inverse
-import Mathlib.LinearAlgebra.Dimension.Free
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Defs
-import Mathlib.LinearAlgebra.Dimension.Constructions
-import Mathlib.Data.ENat.BigOperators
+module
+
+public import Mathlib.RingTheory.PowerSeries.Inverse
+public import Mathlib.LinearAlgebra.Dimension.Free
+public import Mathlib.LinearAlgebra.Quotient.Basic
+public import Mathlib.LinearAlgebra.FiniteDimensional.Defs
+public import Mathlib.LinearAlgebra.Dimension.Constructions
+public import Mathlib.Data.ENat.BigOperators
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open PowerSeries Module LinearMap

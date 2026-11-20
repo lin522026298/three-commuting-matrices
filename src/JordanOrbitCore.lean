@@ -1,6 +1,10 @@
-import FiniteList
-import JordanBudget
-import JordanLower
+module
+
+public import FiniteList
+public import JordanBudget
+public import JordanLower
+
+@[expose] public section
 noncomputable section
 set_option maxHeartbeats 45000
 namespace GKGauge

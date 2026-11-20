@@ -1,6 +1,10 @@
-import NilOperator
-import GroundLength
-import DividedTail
+module
+
+public import NilOperator
+public import GroundLength
+public import DividedTail
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module PowerSeries LinearMap

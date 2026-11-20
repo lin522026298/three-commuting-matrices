@@ -1,5 +1,9 @@
-import PairFromModels
-import JordanTrueNullity
+module
+
+public import PairFromModels
+public import JordanTrueNullity
+
+@[expose] public section
 noncomputable section
 namespace GKGauge
 open JordanPrimitive ActualJordan Matrix Module

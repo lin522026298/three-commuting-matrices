@@ -1,4 +1,8 @@
-import OrbitGauge
+module
+
+public import OrbitGauge
+
+@[expose] public section
 noncomputable section
 set_option maxHeartbeats 45000
 namespace GKGauge

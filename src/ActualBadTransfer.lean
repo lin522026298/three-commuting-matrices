@@ -1,6 +1,10 @@
-import TrueMinorTransfer
-import ActorIndex
-import GKGraphCoordinates
+module
+
+public import TrueMinorTransfer
+public import ActorIndex
+public import GKGraphCoordinates
+
+@[expose] public section
 noncomputable section
 namespace GKDivisor
 universe u

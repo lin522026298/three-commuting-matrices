@@ -1,6 +1,10 @@
-import DVRScalar
-import Mathlib.RingTheory.PowerSeries.Substitution
-import Mathlib.Algebra.Algebra.Subalgebra.Lattice
+module
+
+public import DVRScalar
+public import Mathlib.RingTheory.PowerSeries.Substitution
+public import Mathlib.Algebra.Algebra.Subalgebra.Lattice
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module PowerSeries

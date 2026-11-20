@@ -1,4 +1,8 @@
-import GKGraphOpen
+module
+
+public import GKGraphOpen
+
+@[expose] public section
 noncomputable section
 namespace GKGraph
 variable (k : Type*) [Field k] (r : ℕ)

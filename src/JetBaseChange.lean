@@ -1,6 +1,10 @@
-import ActualBadTransfer
-import Mathlib.RingTheory.PowerSeries.Inverse
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+module
+
+public import ActualBadTransfer
+public import Mathlib.RingTheory.PowerSeries.Inverse
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+
+@[expose] public section
 
 noncomputable section
 namespace GKDivisor.Jet

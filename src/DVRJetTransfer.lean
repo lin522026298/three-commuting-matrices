@@ -1,6 +1,10 @@
-import LocalJetIso
-import PolynomialPowerJet
-import JetOrder
+module
+
+public import LocalJetIso
+public import PolynomialPowerJet
+public import JetOrder
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

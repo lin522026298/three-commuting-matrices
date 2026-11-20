@@ -1,8 +1,12 @@
-import Mathlib.Algebra.Module.PID
-import Mathlib.Algebra.Polynomial.Module.AEval
-import Mathlib.LinearAlgebra.DFinsupp
-import Mathlib.RingTheory.AdjoinRoot
-import Mathlib.LinearAlgebra.Matrix.ToLin
+module
+
+public import Mathlib.Algebra.Module.PID
+public import Mathlib.Algebra.Polynomial.Module.AEval
+public import Mathlib.LinearAlgebra.DFinsupp
+public import Mathlib.RingTheory.AdjoinRoot
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+
+@[expose] public section
 
 noncomputable section
 open Module Polynomial

@@ -1,5 +1,9 @@
-import NativePoleEnds
-import GKGraphShifted
+module
+
+public import NativePoleEnds
+public import GKGraphShifted
+
+@[expose] public section
 set_option linter.style.haveILetI false
 noncomputable section
 namespace GKDivisor.Jet

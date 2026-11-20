@@ -1,7 +1,11 @@
-import Mathlib.Algebra.MvPolynomial.Funext
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.LinearAlgebra.Dimension.Finrank
+module
+
+public import Mathlib.Algebra.MvPolynomial.Funext
+public import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+public import Mathlib.LinearAlgebra.Dual.Lemmas
+public import Mathlib.LinearAlgebra.Dimension.Finrank
+
+@[expose] public section
 
 noncomputable section
 namespace GKGauge

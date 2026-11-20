@@ -1,7 +1,11 @@
-import SquareCover
-import GroundLength
-import Mathlib.RingTheory.LocalRing.Module
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+module
+
+public import SquareCover
+public import GroundLength
+public import Mathlib.RingTheory.LocalRing.Module
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module Submodule IsLocalRing PowerSeries

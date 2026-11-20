@@ -1,5 +1,9 @@
-import OriginalPole
-import StrictEndCoordinates
+module
+
+public import OriginalPole
+public import StrictEndCoordinates
+
+@[expose] public section
 noncomputable section
 namespace G3Assembly
 open Module GKGraph GKDivisor GKDivisor.Jet GKEnds DVRMinimal

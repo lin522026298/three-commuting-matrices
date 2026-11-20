@@ -1,4 +1,8 @@
-import GaugeParameters
+module
+
+public import GaugeParameters
+
+@[expose] public section
 
 noncomputable section
 namespace GKGauge

@@ -1,5 +1,9 @@
-import BoxWords
-import BlockIndex
+module
+
+public import BoxWords
+public import BlockIndex
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module Submodule LinearMap Matrix Polynomial

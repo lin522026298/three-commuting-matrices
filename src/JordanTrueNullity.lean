@@ -1,5 +1,9 @@
-import JordanActualMatrix
-import JordanMultiplicity
+module
+
+public import JordanActualMatrix
+public import JordanMultiplicity
+
+@[expose] public section
 
 noncomputable section
 open Module Matrix JordanPrimitive

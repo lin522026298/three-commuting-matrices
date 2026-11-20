@@ -1,4 +1,8 @@
-import JordanPrimitive
+module
+
+public import JordanPrimitive
+
+@[expose] public section
 
 /-! This stronger converse is not required by the divisor count.  It verifies that no
 non-diagonal dependence on intermediate strings is being ignored. -/

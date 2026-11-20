@@ -1,8 +1,12 @@
-import ActualEnds
-import DescendedWords
-import DVRMinors
-import Gerstenhaber.FourBlocks.MinimalSource.BlockClosure
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+module
+
+public import ActualEnds
+public import DescendedWords
+public import DVRMinors
+public import Gerstenhaber.FourBlocks.MinimalSource.BlockClosure
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+
+@[expose] public section
 
 noncomputable section
 namespace GKEnds

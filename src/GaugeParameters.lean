@@ -1,6 +1,10 @@
-import MatrixGauge
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+module
+
+public import MatrixGauge
+public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+
+@[expose] public section
 
 noncomputable section
 namespace GKGauge

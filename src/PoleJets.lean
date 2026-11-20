@@ -1,5 +1,9 @@
-import JetBaseChange
-import ActualSixJet
+module
+
+public import JetBaseChange
+public import ActualSixJet
+
+@[expose] public section
 
 noncomputable section
 namespace GKDivisor.Jet

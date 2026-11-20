@@ -1,4 +1,8 @@
-import DescendedWords
+module
+
+public import DescendedWords
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module Matrix IsDiscreteValuationRing

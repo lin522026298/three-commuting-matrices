@@ -1,6 +1,10 @@
-import Mathlib.LinearAlgebra.Matrix.Adjugate
-import Mathlib.RingTheory.Ideal.Quotient.Operations
-import Mathlib.RingTheory.PowerSeries.Inverse
+module
+
+public import Mathlib.LinearAlgebra.Matrix.Adjugate
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+public import Mathlib.RingTheory.PowerSeries.Inverse
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

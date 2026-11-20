@@ -1,4 +1,8 @@
-import ActualMinimalEnds
+module
+
+public import ActualMinimalEnds
+
+@[expose] public section
 namespace DVRMinimal
 open Module Gerstenhaber.FourBlocks.PrimaryDecomposition
 universe u

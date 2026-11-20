@@ -1,6 +1,10 @@
-import LeastPresentedEnds
-import GraphToFamily
-import GKGraphActor
+module
+
+public import LeastPresentedEnds
+public import GraphToFamily
+public import GKGraphActor
+
+@[expose] public section
 set_option linter.style.haveILetI false
 noncomputable section
 namespace GKEnds

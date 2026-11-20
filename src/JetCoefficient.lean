@@ -1,7 +1,11 @@
-import Mathlib.RingTheory.Smooth.Field
-import Mathlib.RingTheory.Ideal.Quotient.Nilpotent
-import Mathlib.RingTheory.Ideal.Quotient.PowTransition
-import Mathlib.Algebra.Polynomial.Eval.Defs
+module
+
+public import Mathlib.RingTheory.Smooth.Field
+public import Mathlib.RingTheory.Ideal.Quotient.Nilpotent
+public import Mathlib.RingTheory.Ideal.Quotient.PowTransition
+public import Mathlib.Algebra.Polynomial.Eval.Defs
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

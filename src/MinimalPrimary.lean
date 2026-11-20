@@ -1,4 +1,8 @@
-import Gerstenhaber.FourBlocks.PrimaryDecomposition.Transfer
+module
+
+public import Gerstenhaber.FourBlocks.PrimaryDecomposition.Transfer
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

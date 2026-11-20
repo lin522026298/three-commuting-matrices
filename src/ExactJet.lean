@@ -1,7 +1,11 @@
-import JetCoefficient
-import Mathlib.Algebra.Polynomial.FieldDivision
-import Mathlib.Algebra.Polynomial.RingDivision
-import Mathlib.RingTheory.PrincipalIdealDomain
+module
+
+public import JetCoefficient
+public import Mathlib.Algebra.Polynomial.FieldDivision
+public import Mathlib.Algebra.Polynomial.RingDivision
+public import Mathlib.RingTheory.PrincipalIdealDomain
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

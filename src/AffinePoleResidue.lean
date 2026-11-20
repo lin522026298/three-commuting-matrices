@@ -1,6 +1,10 @@
-import AffineNormalization
-import ResidueDimension
-import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
+module
+
+public import AffineNormalization
+public import ResidueDimension
+public import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 noncomputable section

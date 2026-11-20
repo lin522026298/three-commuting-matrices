@@ -1,5 +1,9 @@
-import SquareCover
-import DescendedWords
+module
+
+public import SquareCover
+public import DescendedWords
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap Submodule Matrix

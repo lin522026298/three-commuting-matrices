@@ -1,7 +1,11 @@
-import PoleClosedJets
-import PresentedWidth
-import GraphToFamily
-import ActualMinimalEnds
+module
+
+public import PoleClosedJets
+public import PresentedWidth
+public import GraphToFamily
+public import ActualMinimalEnds
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 noncomputable section

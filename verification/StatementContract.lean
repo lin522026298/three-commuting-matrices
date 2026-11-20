@@ -1,4 +1,8 @@
-import FullG3
+module
+
+public import FullG3
+
+@[expose] public section
 /-- Independent client in ordinary multiplication notation, with no project-defined predicate. -/
 theorem all_complex_matrices_contract :
     ∀ (n : ℕ) (A B C : Matrix (Fin n) (Fin n) ℂ),

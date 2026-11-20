@@ -1,5 +1,9 @@
-import ActualMinimalEnds
-import Mathlib.LinearAlgebra.Matrix.ToLin
+module
+
+public import ActualMinimalEnds
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+
+@[expose] public section
 noncomputable section
 namespace GKEnds
 open Module LinearMap

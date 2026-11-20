@@ -1,7 +1,11 @@
-import RealCenters
-import WitnessBudget
-import ActualPairParameters
-import Mathlib.Analysis.Complex.Polynomial.Basic
+module
+
+public import RealCenters
+public import WitnessBudget
+public import ActualPairParameters
+public import Mathlib.Analysis.Complex.Polynomial.Basic
+
+@[expose] public section
 noncomputable section
 namespace G3Assembly
 open Module GKGraph GKDivisor GKDivisor.Jet GKEnds DVRMinimal

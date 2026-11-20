@@ -1,6 +1,10 @@
-import DVRJetTransfer
-import PrecisionRepair
-import GKGraphMinor
+module
+
+public import DVRJetTransfer
+public import PrecisionRepair
+public import GKGraphMinor
+
+@[expose] public section
 noncomputable section
 namespace DVRMinimal
 set_option maxHeartbeats 800000

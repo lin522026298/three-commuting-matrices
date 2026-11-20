@@ -1,5 +1,9 @@
-import ActualSixJet
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+module
+
+public import ActualSixJet
+public import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

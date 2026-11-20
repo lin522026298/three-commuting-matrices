@@ -1,7 +1,11 @@
-import PoleGlobalWitness
-import OriginalGraph
-import TripleFamily
-import InitialMinimum
+module
+
+public import PoleGlobalWitness
+public import OriginalGraph
+public import TripleFamily
+public import InitialMinimum
+
+@[expose] public section
 noncomputable section
 namespace G3Assembly
 open Module LinearMap DivisorG3 GKDivisor GKDivisor.Jet GKGraph IsDiscreteValuationRing

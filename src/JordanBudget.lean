@@ -1,4 +1,8 @@
-import JordanLiteralParameters
+module
+
+public import JordanLiteralParameters
+
+@[expose] public section
 
 /-! Adapter only: the unconditioned literal free-coordinate theorem is in
 JordanLiteralParameters; the separate single-nilpotent-matrix orbit count is

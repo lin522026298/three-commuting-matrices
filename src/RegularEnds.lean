@@ -1,5 +1,9 @@
-import Gerstenhaber.FourBlocks.MinimalSource.KernelHeadDuality
-import Gerstenhaber.FourBlocks.MinimalSource.CyclicOperator
+module
+
+public import Gerstenhaber.FourBlocks.MinimalSource.KernelHeadDuality
+public import Gerstenhaber.FourBlocks.MinimalSource.CyclicOperator
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

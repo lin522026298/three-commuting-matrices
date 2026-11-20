@@ -1,6 +1,10 @@
-import Mathlib.RingTheory.Ideal.Quotient.Operations
-import Mathlib.RingTheory.PowerSeries.Inverse
-import Mathlib.RingTheory.DiscreteValuationRing.Basic
+module
+
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+public import Mathlib.RingTheory.PowerSeries.Inverse
+public import Mathlib.RingTheory.DiscreteValuationRing.Basic
+
+@[expose] public section
 noncomputable section
 namespace DVRMinimal
 open Ideal

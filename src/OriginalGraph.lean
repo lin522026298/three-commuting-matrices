@@ -1,6 +1,10 @@
-import OriginActor
-import ConjugateActor
-import MinimalCover
+module
+
+public import OriginActor
+public import ConjugateActor
+public import MinimalCover
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap PowerSeries Matrix IsDiscreteValuationRing

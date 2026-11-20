@@ -1,6 +1,10 @@
-import GKGraphMinor
-import GKRationalResidual
-import GKGraphCoordinates
+module
+
+public import GKGraphMinor
+public import GKRationalResidual
+public import GKGraphCoordinates
+
+@[expose] public section
 set_option maxHeartbeats 800000
 set_option synthInstance.maxHeartbeats 100000
 noncomputable section

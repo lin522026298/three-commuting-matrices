@@ -1,5 +1,9 @@
-import Mathlib.LinearAlgebra.Isomorphisms
-import Mathlib.LinearAlgebra.Quotient.Basic
+module
+
+public import Mathlib.LinearAlgebra.Isomorphisms
+public import Mathlib.LinearAlgebra.Quotient.Basic
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open LinearMap Module Submodule

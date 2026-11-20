@@ -1,5 +1,9 @@
-import ExactJet
-import Mathlib.RingTheory.DiscreteValuationRing.Basic
+module
+
+public import ExactJet
+public import Mathlib.RingTheory.DiscreteValuationRing.Basic
+
+@[expose] public section
 
 noncomputable section
 namespace DVRMinimal

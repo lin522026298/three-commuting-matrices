@@ -1,6 +1,10 @@
-import Mathlib.RingTheory.Localization.AsSubring
-import Mathlib.RingTheory.Localization.Away.Basic
-import Mathlib.RingTheory.Adjoin.Polynomial.Basic
+module
+
+public import Mathlib.RingTheory.Localization.AsSubring
+public import Mathlib.RingTheory.Localization.Away.Basic
+public import Mathlib.RingTheory.Adjoin.Polynomial.Basic
+
+@[expose] public section
 noncomputable section
 namespace GKRational
 variable {A K O : Type*} [CommRing A] [IsDomain A] [Field K] [Algebra A K] [IsFractionRing A K]

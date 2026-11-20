@@ -1,9 +1,13 @@
-import PolePrime
-import Mathlib.RingTheory.NoetherNormalization
-import Mathlib.RingTheory.DedekindDomain.IntegralClosure
-import Mathlib.RingTheory.Algebraic.Integral
-import Mathlib.RingTheory.Localization.Finiteness
-import Mathlib.FieldTheory.SeparableDegree
+module
+
+public import PolePrime
+public import Mathlib.RingTheory.NoetherNormalization
+public import Mathlib.RingTheory.DedekindDomain.IntegralClosure
+public import Mathlib.RingTheory.Algebraic.Integral
+public import Mathlib.RingTheory.Localization.Finiteness
+public import Mathlib.FieldTheory.SeparableDegree
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 set_option maxHeartbeats 1600000

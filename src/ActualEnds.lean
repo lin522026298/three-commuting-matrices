@@ -1,7 +1,11 @@
-import DividedTail
-import DVRScalar
-import Mathlib.LinearAlgebra.Matrix.Nondegenerate
-import Mathlib.LinearAlgebra.Matrix.ToLin
+module
+
+public import DividedTail
+public import DVRScalar
+public import Mathlib.LinearAlgebra.Matrix.Nondegenerate
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open PowerSeries Module LinearMap Submodule

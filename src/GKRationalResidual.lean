@@ -1,5 +1,9 @@
-import GKRationalAdjunction
-import Mathlib.RingTheory.Ideal.Quotient.Operations
+module
+
+public import GKRationalAdjunction
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+
+@[expose] public section
 noncomputable section
 namespace GKRational
 variable {A K B : Type*} [CommRing A] [Field K] [Algebra A K] [CommRing B]

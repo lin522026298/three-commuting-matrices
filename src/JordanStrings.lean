@@ -1,4 +1,8 @@
-import JordanMatrix
+module
+
+public import JordanMatrix
+
+@[expose] public section
 noncomputable section
 namespace JordanPrimitive
 open Module

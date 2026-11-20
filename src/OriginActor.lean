@@ -1,7 +1,11 @@
-import OriginAction
-import ActorIndex
-import Mathlib.Algebra.Algebra.Subalgebra.Tower
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+module
+
+public import OriginAction
+public import ActorIndex
+public import Mathlib.Algebra.Algebra.Subalgebra.Tower
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap PowerSeries

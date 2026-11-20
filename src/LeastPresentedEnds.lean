@@ -1,6 +1,10 @@
-import SourceEndFrames
-import EndCoordinateCriterion
-import GKGraphCore
+module
+
+public import SourceEndFrames
+public import EndCoordinateCriterion
+public import GKGraphCore
+
+@[expose] public section
 set_option linter.style.haveILetI false
 noncomputable section
 namespace GKEnds

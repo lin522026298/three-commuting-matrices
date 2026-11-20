@@ -1,5 +1,9 @@
-import TrueGraphPole
-import GKRationalResidual
+module
+
+public import TrueGraphPole
+public import GKRationalResidual
+
+@[expose] public section
 
 noncomputable section
 set_option linter.style.haveILetI false

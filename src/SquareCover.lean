@@ -1,6 +1,10 @@
-import BlockIndex
-import Mathlib.Algebra.Module.PID
-import Mathlib.LinearAlgebra.Matrix.Nonsingular
+module
+
+public import BlockIndex
+public import Mathlib.Algebra.Module.PID
+public import Mathlib.LinearAlgebra.Matrix.Nonsingular
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module LinearMap Submodule Matrix

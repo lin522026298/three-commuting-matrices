@@ -1,4 +1,8 @@
-import PoleCoordinates
+module
+
+public import PoleCoordinates
+
+@[expose] public section
 set_option linter.style.haveILetI false
 set_option synthInstance.maxHeartbeats 80000
 set_option maxHeartbeats 900000

@@ -1,9 +1,13 @@
-import Mathlib.RingTheory.NoetherNormalization
-import Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis
-import Mathlib.RingTheory.AdjoinRoot
-import Mathlib.RingTheory.Ideal.UFD
-import Mathlib.RingTheory.IntegralClosure.GoingDown
-import Mathlib.RingTheory.Polynomial.UniqueFactorization
+module
+
+public import Mathlib.RingTheory.NoetherNormalization
+public import Mathlib.RingTheory.AlgebraicIndependent.TranscendenceBasis
+public import Mathlib.RingTheory.AdjoinRoot
+public import Mathlib.RingTheory.Ideal.UFD
+public import Mathlib.RingTheory.IntegralClosure.GoingDown
+public import Mathlib.RingTheory.Polynomial.UniqueFactorization
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 set_option maxHeartbeats 150000

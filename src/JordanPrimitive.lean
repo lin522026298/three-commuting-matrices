@@ -1,13 +1,17 @@
-import Mathlib.Algebra.Algebra.Subalgebra.Basic
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Matrix.Basis
-import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
-import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
-import Mathlib.RingTheory.Nilpotent.Lemmas
-import Mathlib.Tactic.Abel
-import Mathlib.Tactic.SplitIfs
-import Mathlib.Tactic.Linarith
-import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+module
+
+public import Mathlib.Algebra.Algebra.Subalgebra.Basic
+public import Mathlib.LinearAlgebra.Matrix.ToLin
+public import Mathlib.LinearAlgebra.Matrix.Basis
+public import Mathlib.LinearAlgebra.FreeModule.Finite.Matrix
+public import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+public import Mathlib.RingTheory.Nilpotent.Lemmas
+public import Mathlib.Tactic.Abel
+public import Mathlib.Tactic.SplitIfs
+public import Mathlib.Tactic.Linarith
+public import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+
+@[expose] public section
 
 /-! Arbitrary multiplicities, including empty levels. Group h has strings of
 length h+1. The primitive coordinates below are taken on the socle flag,

@@ -1,8 +1,12 @@
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.LinearAlgebra.Matrix.MvPolynomial
-import Mathlib.RingTheory.Localization.AsSubring
-import Mathlib.RingTheory.FiniteType
-import Mathlib.Tactic.FinCases
+module
+
+public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.MvPolynomial
+public import Mathlib.RingTheory.Localization.AsSubring
+public import Mathlib.RingTheory.FiniteType
+public import Mathlib.Tactic.FinCases
+
+@[expose] public section
 
 noncomputable section
 namespace GKGraph

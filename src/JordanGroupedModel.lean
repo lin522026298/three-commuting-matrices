@@ -1,6 +1,10 @@
-import JordanPID
-import JordanGroupSites
-import JordanStrings
+module
+
+public import JordanPID
+public import JordanGroupSites
+public import JordanStrings
+
+@[expose] public section
 
 noncomputable section
 set_option maxHeartbeats 110000

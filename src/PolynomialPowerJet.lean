@@ -1,6 +1,10 @@
-import Mathlib.RingTheory.PowerSeries.Trunc
-import Mathlib.Algebra.Polynomial.Div
-import Mathlib.RingTheory.Ideal.Quotient.Operations
+module
+
+public import Mathlib.RingTheory.PowerSeries.Trunc
+public import Mathlib.Algebra.Polynomial.Div
+public import Mathlib.RingTheory.Ideal.Quotient.Operations
+
+@[expose] public section
 noncomputable section
 namespace DVRMinimal
 open Polynomial

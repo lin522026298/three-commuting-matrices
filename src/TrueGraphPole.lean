@@ -1,6 +1,10 @@
-import AffinePoleResidue
-import GKGraphInversePoint
-import GKGraphDimension
+module
+
+public import AffinePoleResidue
+public import GKGraphInversePoint
+public import GKGraphDimension
+
+@[expose] public section
 
 set_option linter.style.haveILetI false
 set_option maxHeartbeats 1000000

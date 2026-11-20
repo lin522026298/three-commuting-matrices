@@ -1,5 +1,9 @@
-import Mathlib.RingTheory.PowerBasis
-import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
+module
+
+public import Mathlib.RingTheory.PowerBasis
+public import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module Submodule Polynomial

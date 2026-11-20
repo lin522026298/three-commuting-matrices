@@ -1,6 +1,10 @@
-import DVRScalar
-import AnyMinors
-import Mathlib.LinearAlgebra.Matrix.Rank
+module
+
+public import DVRScalar
+public import AnyMinors
+public import Mathlib.LinearAlgebra.Matrix.Rank
+
+@[expose] public section
 noncomputable section
 namespace DivisorG3
 open Module PowerSeries
